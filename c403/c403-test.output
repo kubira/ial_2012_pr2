@@ -1,0 +1,250 @@
+Vkladani a vyhledavani v neserazenem poli (zarazka, optimalizace)
+===================================================================================
+[TEST01]
+Nastavime testovaci velikost tabulky na 5 a provedeme inicializaci.
+Aktualni stav tabulky:
+Pozice: 0 Klic: 0, Hodnota: 0
+Pozice: 1 Klic: 0, Hodnota: 0
+Pozice: 2 Klic: 0, Hodnota: 0
+Pozice: 3 Klic: 0, Hodnota: 0
+Pozice: 4 Klic: 0, Hodnota: 0
+Index posledniho prvku je: -1
+=========================================================
+[TEST02]
+Pokusime se vyhledat neexistujici polozku s klicem 1
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Aktualni stav tabulky:
+Pozice: 0 Klic: 1, Hodnota: -1
+Pozice: 1 Klic: 0, Hodnota: 0
+Pozice: 2 Klic: 0, Hodnota: 0
+Pozice: 3 Klic: 0, Hodnota: 0
+Pozice: 4 Klic: 0, Hodnota: 0
+Index posledniho prvku je: -1
+=========================================================
+Hodnota nalezena: NE
+Index vracen: 0
+Pocet provedenych porovnani: 1
+=========================================================
+[TEST03]
+Vlozime prvni polozku s hodnotou 1,klicem 1
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Aktualni stav tabulky:
+Pozice: 0 Klic: 1, Hodnota: 1
+Pozice: 1 Klic: 0, Hodnota: 0
+Pozice: 2 Klic: 0, Hodnota: 0
+Pozice: 3 Klic: 0, Hodnota: 0
+Pozice: 4 Klic: 0, Hodnota: 0
+Index posledniho prvku je: 0
+=========================================================
+[TEST04]
+Pokusime se znovu vyhledat polozku s klicem 1
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Aktualni stav tabulky:
+Pozice: 0 Klic: 1, Hodnota: 1
+Pozice: 1 Klic: 1, Hodnota: -1
+Pozice: 2 Klic: 0, Hodnota: 0
+Pozice: 3 Klic: 0, Hodnota: 0
+Pozice: 4 Klic: 0, Hodnota: 0
+Index posledniho prvku je: 0
+=========================================================
+Hodnota nalezena: ANO
+Index vracen: 0
+Pocet provedenych porovnani: 1
+=========================================================
+[TEST05]
+Jeste jednou vyhledame prvni polozku v tabulce (test posouvani)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Aktualni stav tabulky:
+Pozice: 0 Klic: 1, Hodnota: 1
+Pozice: 1 Klic: 1, Hodnota: -1
+Pozice: 2 Klic: 0, Hodnota: 0
+Pozice: 3 Klic: 0, Hodnota: 0
+Pozice: 4 Klic: 0, Hodnota: 0
+Index posledniho prvku je: 0
+=========================================================
+Hodnota nalezena: ANO
+Index vracen: 0
+Pocet provedenych porovnani: 1
+=========================================================
+[TEST06]
+Pokusime se vyhledat neexistujici polozku s klicem 2
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Aktualni stav tabulky:
+Pozice: 0 Klic: 1, Hodnota: 1
+Pozice: 1 Klic: 2, Hodnota: -1
+Pozice: 2 Klic: 0, Hodnota: 0
+Pozice: 3 Klic: 0, Hodnota: 0
+Pozice: 4 Klic: 0, Hodnota: 0
+Index posledniho prvku je: 0
+=========================================================
+Hodnota nalezena: NE
+Index vracen: 1
+Pocet provedenych porovnani: 2
+=========================================================
+[TEST07]
+Provedeme aktualizaci polozky 1 na hodnotu 9
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Aktualni stav tabulky:
+Pozice: 0 Klic: 1, Hodnota: 9
+Pozice: 1 Klic: 1, Hodnota: -1
+Pozice: 2 Klic: 0, Hodnota: 0
+Pozice: 3 Klic: 0, Hodnota: 0
+Pozice: 4 Klic: 0, Hodnota: 0
+Index posledniho prvku je: 0
+=========================================================
+[TEST08]
+Vlozime dalsi polozky
+~~~~~~~~~~~~~~~~~~~~~
+Aktualni stav tabulky:
+Pozice: 0 Klic: 1, Hodnota: 9
+Pozice: 1 Klic: 2, Hodnota: 1
+Pozice: 2 Klic: 0, Hodnota: 0
+Pozice: 3 Klic: 0, Hodnota: 0
+Pozice: 4 Klic: 0, Hodnota: 0
+Index posledniho prvku je: 1
+=========================================================
+Aktualni stav tabulky:
+Pozice: 0 Klic: 1, Hodnota: 9
+Pozice: 1 Klic: 2, Hodnota: 1
+Pozice: 2 Klic: 3, Hodnota: 2
+Pozice: 3 Klic: 0, Hodnota: 0
+Pozice: 4 Klic: 0, Hodnota: 0
+Index posledniho prvku je: 2
+=========================================================
+Aktualni stav tabulky:
+Pozice: 0 Klic: 1, Hodnota: 9
+Pozice: 1 Klic: 2, Hodnota: 1
+Pozice: 2 Klic: 3, Hodnota: 2
+Pozice: 3 Klic: 4, Hodnota: 3
+Pozice: 4 Klic: 0, Hodnota: 0
+Index posledniho prvku je: 3
+=========================================================
+[TEST09]
+Dalsi polozka jiz nesmi jit vlozit, nebot by nezustalo misto pro zarazku
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Chyba: Polozka jiz nemuze byt vlozena
+Aktualni stav tabulky:
+Pozice: 0 Klic: 1, Hodnota: 9
+Pozice: 1 Klic: 2, Hodnota: 1
+Pozice: 2 Klic: 3, Hodnota: 2
+Pozice: 3 Klic: 4, Hodnota: 3
+Pozice: 4 Klic: 5, Hodnota: -1
+Index posledniho prvku je: 3
+=========================================================
+[TEST10]
+Provedeme aktualizaci polozky 2 na hodnotu 5. Mel by nastat presun.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Aktualni stav tabulky:
+Pozice: 0 Klic: 2, Hodnota: 5
+Pozice: 1 Klic: 1, Hodnota: 9
+Pozice: 2 Klic: 3, Hodnota: 2
+Pozice: 3 Klic: 4, Hodnota: 3
+Pozice: 4 Klic: 2, Hodnota: -1
+Index posledniho prvku je: 3
+=========================================================
+[TEST11]
+Budeme 5x vyhledavat posledni vlozenou polozku 4
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Aktualni stav tabulky:
+Pozice: 0 Klic: 2, Hodnota: 5
+Pozice: 1 Klic: 1, Hodnota: 9
+Pozice: 2 Klic: 4, Hodnota: 3
+Pozice: 3 Klic: 3, Hodnota: 2
+Pozice: 4 Klic: 4, Hodnota: -1
+Index posledniho prvku je: 3
+=========================================================
+Hodnota nalezena: ANO
+Index vracen: 2
+Pocet provedenych porovnani: 4
+=========================================================
+Aktualni stav tabulky:
+Pozice: 0 Klic: 2, Hodnota: 5
+Pozice: 1 Klic: 4, Hodnota: 3
+Pozice: 2 Klic: 1, Hodnota: 9
+Pozice: 3 Klic: 3, Hodnota: 2
+Pozice: 4 Klic: 4, Hodnota: -1
+Index posledniho prvku je: 3
+=========================================================
+Hodnota nalezena: ANO
+Index vracen: 1
+Pocet provedenych porovnani: 3
+=========================================================
+Aktualni stav tabulky:
+Pozice: 0 Klic: 4, Hodnota: 3
+Pozice: 1 Klic: 2, Hodnota: 5
+Pozice: 2 Klic: 1, Hodnota: 9
+Pozice: 3 Klic: 3, Hodnota: 2
+Pozice: 4 Klic: 4, Hodnota: -1
+Index posledniho prvku je: 3
+=========================================================
+Hodnota nalezena: ANO
+Index vracen: 0
+Pocet provedenych porovnani: 2
+=========================================================
+Aktualni stav tabulky:
+Pozice: 0 Klic: 4, Hodnota: 3
+Pozice: 1 Klic: 2, Hodnota: 5
+Pozice: 2 Klic: 1, Hodnota: 9
+Pozice: 3 Klic: 3, Hodnota: 2
+Pozice: 4 Klic: 4, Hodnota: -1
+Index posledniho prvku je: 3
+=========================================================
+Hodnota nalezena: ANO
+Index vracen: 0
+Pocet provedenych porovnani: 1
+=========================================================
+[TEST12]
+Provedeme aktualizaci polozky 2 na hodnotu 8
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Aktualni stav tabulky:
+Pozice: 0 Klic: 2, Hodnota: 8
+Pozice: 1 Klic: 4, Hodnota: 3
+Pozice: 2 Klic: 1, Hodnota: 9
+Pozice: 3 Klic: 3, Hodnota: 2
+Pozice: 4 Klic: 2, Hodnota: -1
+Index posledniho prvku je: 3
+=========================================================
+[TEST13]
+Pokusime se vlozit dalsi polozky, coz nesmi jit
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Chyba: Polozka jiz nemuze byt vlozena
+Aktualni stav tabulky:
+Pozice: 0 Klic: 2, Hodnota: 8
+Pozice: 1 Klic: 4, Hodnota: 3
+Pozice: 2 Klic: 1, Hodnota: 9
+Pozice: 3 Klic: 3, Hodnota: 2
+Pozice: 4 Klic: 30, Hodnota: -1
+Index posledniho prvku je: 3
+=========================================================
+Chyba: Polozka jiz nemuze byt vlozena
+Aktualni stav tabulky:
+Pozice: 0 Klic: 2, Hodnota: 8
+Pozice: 1 Klic: 4, Hodnota: 3
+Pozice: 2 Klic: 1, Hodnota: 9
+Pozice: 3 Klic: 3, Hodnota: 2
+Pozice: 4 Klic: 40, Hodnota: -1
+Index posledniho prvku je: 3
+=========================================================
+[TEST14]
+A na zaver tabulku inicializujeme (ztrata vsech dat)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Aktualni stav tabulky:
+Pozice: 0 Klic: 2, Hodnota: 8
+Pozice: 1 Klic: 4, Hodnota: 3
+Pozice: 2 Klic: 1, Hodnota: 9
+Pozice: 3 Klic: 3, Hodnota: 2
+Pozice: 4 Klic: 40, Hodnota: -1
+Index posledniho prvku je: -1
+=========================================================
+[TEST15]
+A jeste jedna inicializace (ztrata vsech dat) 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+Aktualni stav tabulky:
+Pozice: 0 Klic: 2, Hodnota: 8
+Pozice: 1 Klic: 4, Hodnota: 3
+Pozice: 2 Klic: 1, Hodnota: 9
+Pozice: 3 Klic: 3, Hodnota: 2
+Pozice: 4 Klic: 40, Hodnota: -1
+Index posledniho prvku je: -1
+=========================================================
+------------------------------ konec -------------------------------------

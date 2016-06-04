@@ -1,0 +1,321 @@
+Vkládání a vyhledávání v neseøazeném poli (zaráka, optimalizace) - pokrocile testy
+===================================================================================
+[TEST01]
+Nastavíme testovací velikost tabulky na 5 a provedeme inicializaci.
+Aktuální stav tabulky:
+Pozice: 0 Klíè: 0, Hodnota: 0
+Pozice: 1 Klíè: 0, Hodnota: 0
+Pozice: 2 Klíè: 0, Hodnota: 0
+Pozice: 3 Klíè: 0, Hodnota: 0
+Pozice: 4 Klíè: 0, Hodnota: 0
+Index posledního prvku je: -1
+=========================================================
+[TEST02]
+Pokusíme se vyhledat neexistující poloku s klíèem 1
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Aktuální stav tabulky:
+Pozice: 0 Klíè: 1, Hodnota: -1
+Pozice: 1 Klíè: 0, Hodnota: 0
+Pozice: 2 Klíè: 0, Hodnota: 0
+Pozice: 3 Klíè: 0, Hodnota: 0
+Pozice: 4 Klíè: 0, Hodnota: 0
+Index posledního prvku je: -1
+=========================================================
+Hodnota nalezena: NE
+Index vrácen: 0
+Poèet provedenıch porovnání: 1
+=========================================================
+[TEST03]
+Vloíme první poloku s hodnotou 1,klíèem 1
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Aktuální stav tabulky:
+Pozice: 0 Klíè: 1, Hodnota: 1
+Pozice: 1 Klíè: 0, Hodnota: 0
+Pozice: 2 Klíè: 0, Hodnota: 0
+Pozice: 3 Klíè: 0, Hodnota: 0
+Pozice: 4 Klíè: 0, Hodnota: 0
+Index posledního prvku je: 0
+=========================================================
+[TEST04]
+Pokusíme se znovu vyhledat poloku s klíèem 1
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Aktuální stav tabulky:
+Pozice: 0 Klíè: 1, Hodnota: 1
+Pozice: 1 Klíè: 1, Hodnota: -1
+Pozice: 2 Klíè: 0, Hodnota: 0
+Pozice: 3 Klíè: 0, Hodnota: 0
+Pozice: 4 Klíè: 0, Hodnota: 0
+Index posledního prvku je: 0
+=========================================================
+Hodnota nalezena: ANO
+Index vrácen: 0
+Poèet provedenıch porovnání: 1
+=========================================================
+[TEST05]
+Ještì jednou vyhledáme první poloku v tabulce (test posouvání)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Aktuální stav tabulky:
+Pozice: 0 Klíè: 1, Hodnota: 1
+Pozice: 1 Klíè: 1, Hodnota: -1
+Pozice: 2 Klíè: 0, Hodnota: 0
+Pozice: 3 Klíè: 0, Hodnota: 0
+Pozice: 4 Klíè: 0, Hodnota: 0
+Index posledního prvku je: 0
+=========================================================
+Hodnota nalezena: ANO
+Index vrácen: 0
+Poèet provedenıch porovnání: 1
+=========================================================
+[TEST06]
+Pokusíme se vyhledat neexistující poloku s klíèem 2
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Aktuální stav tabulky:
+Pozice: 0 Klíè: 1, Hodnota: 1
+Pozice: 1 Klíè: 2, Hodnota: -1
+Pozice: 2 Klíè: 0, Hodnota: 0
+Pozice: 3 Klíè: 0, Hodnota: 0
+Pozice: 4 Klíè: 0, Hodnota: 0
+Index posledního prvku je: 0
+=========================================================
+Hodnota nalezena: NE
+Index vrácen: 1
+Poèet provedenıch porovnání: 2
+=========================================================
+[TEST07]
+Provedeme aktualizaci poloky 1 na hodnotu 9
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Aktuální stav tabulky:
+Pozice: 0 Klíè: 1, Hodnota: 9
+Pozice: 1 Klíè: 1, Hodnota: -1
+Pozice: 2 Klíè: 0, Hodnota: 0
+Pozice: 3 Klíè: 0, Hodnota: 0
+Pozice: 4 Klíè: 0, Hodnota: 0
+Index posledního prvku je: 0
+=========================================================
+[TEST08]
+Vloíme další poloky
+~~~~~~~~~~~~~~~~~~~~~
+Aktuální stav tabulky:
+Pozice: 0 Klíè: 1, Hodnota: 9
+Pozice: 1 Klíè: 2, Hodnota: 1
+Pozice: 2 Klíè: 0, Hodnota: 0
+Pozice: 3 Klíè: 0, Hodnota: 0
+Pozice: 4 Klíè: 0, Hodnota: 0
+Index posledního prvku je: 1
+=========================================================
+Aktuální stav tabulky:
+Pozice: 0 Klíè: 1, Hodnota: 9
+Pozice: 1 Klíè: 2, Hodnota: 1
+Pozice: 2 Klíè: 3, Hodnota: 2
+Pozice: 3 Klíè: 0, Hodnota: 0
+Pozice: 4 Klíè: 0, Hodnota: 0
+Index posledního prvku je: 2
+=========================================================
+Aktuální stav tabulky:
+Pozice: 0 Klíè: 1, Hodnota: 9
+Pozice: 1 Klíè: 2, Hodnota: 1
+Pozice: 2 Klíè: 3, Hodnota: 2
+Pozice: 3 Klíè: 4, Hodnota: 3
+Pozice: 4 Klíè: 0, Hodnota: 0
+Index posledního prvku je: 3
+=========================================================
+[TEST09]
+Další poloka ji nesmí jít vloit, nebo by nezùstalo místo pro zaráku
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Chyba: Polozka jiz nemuze byt vlozena
+Aktuální stav tabulky:
+Pozice: 0 Klíè: 1, Hodnota: 9
+Pozice: 1 Klíè: 2, Hodnota: 1
+Pozice: 2 Klíè: 3, Hodnota: 2
+Pozice: 3 Klíè: 4, Hodnota: 3
+Pozice: 4 Klíè: 5, Hodnota: -1
+Index posledního prvku je: 3
+=========================================================
+[TEST10]
+Provedeme aktualizaci poloky 2 na hodnotu 5. Mìl by nastat pøesun.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Aktuální stav tabulky:
+Pozice: 0 Klíè: 2, Hodnota: 5
+Pozice: 1 Klíè: 1, Hodnota: 9
+Pozice: 2 Klíè: 3, Hodnota: 2
+Pozice: 3 Klíè: 4, Hodnota: 3
+Pozice: 4 Klíè: 2, Hodnota: -1
+Index posledního prvku je: 3
+=========================================================
+[TEST11]
+Budeme 5x vyhledávat poslední vloenou poloku 4
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Aktuální stav tabulky:
+Pozice: 0 Klíè: 2, Hodnota: 5
+Pozice: 1 Klíè: 1, Hodnota: 9
+Pozice: 2 Klíè: 4, Hodnota: 3
+Pozice: 3 Klíè: 3, Hodnota: 2
+Pozice: 4 Klíè: 4, Hodnota: -1
+Index posledního prvku je: 3
+=========================================================
+Hodnota nalezena: ANO
+Index vrácen: 2
+Poèet provedenıch porovnání: 4
+=========================================================
+Aktuální stav tabulky:
+Pozice: 0 Klíè: 2, Hodnota: 5
+Pozice: 1 Klíè: 4, Hodnota: 3
+Pozice: 2 Klíè: 1, Hodnota: 9
+Pozice: 3 Klíè: 3, Hodnota: 2
+Pozice: 4 Klíè: 4, Hodnota: -1
+Index posledního prvku je: 3
+=========================================================
+Hodnota nalezena: ANO
+Index vrácen: 1
+Poèet provedenıch porovnání: 3
+=========================================================
+Aktuální stav tabulky:
+Pozice: 0 Klíè: 4, Hodnota: 3
+Pozice: 1 Klíè: 2, Hodnota: 5
+Pozice: 2 Klíè: 1, Hodnota: 9
+Pozice: 3 Klíè: 3, Hodnota: 2
+Pozice: 4 Klíè: 4, Hodnota: -1
+Index posledního prvku je: 3
+=========================================================
+Hodnota nalezena: ANO
+Index vrácen: 0
+Poèet provedenıch porovnání: 2
+=========================================================
+Aktuální stav tabulky:
+Pozice: 0 Klíè: 4, Hodnota: 3
+Pozice: 1 Klíè: 2, Hodnota: 5
+Pozice: 2 Klíè: 1, Hodnota: 9
+Pozice: 3 Klíè: 3, Hodnota: 2
+Pozice: 4 Klíè: 4, Hodnota: -1
+Index posledního prvku je: 3
+=========================================================
+Hodnota nalezena: ANO
+Index vrácen: 0
+Poèet provedenıch porovnání: 1
+=========================================================
+[TEST12]
+Provedeme aktualizaci poloky 2 na hodnotu 8
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Aktuální stav tabulky:
+Pozice: 0 Klíè: 2, Hodnota: 8
+Pozice: 1 Klíè: 4, Hodnota: 3
+Pozice: 2 Klíè: 1, Hodnota: 9
+Pozice: 3 Klíè: 3, Hodnota: 2
+Pozice: 4 Klíè: 2, Hodnota: -1
+Index posledního prvku je: 3
+=========================================================
+[TEST13]
+Provedeme aktualizaci poloky 3 na hodnotu 9
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Aktuální stav tabulky:
+Pozice: 0 Klíè: 2, Hodnota: 8
+Pozice: 1 Klíè: 4, Hodnota: 3
+Pozice: 2 Klíè: 3, Hodnota: 9
+Pozice: 3 Klíè: 1, Hodnota: 9
+Pozice: 4 Klíè: 3, Hodnota: -1
+Index posledního prvku je: 3
+=========================================================
+[TEST14]
+Pokusíme se vloit další poloky, co nesmí jít
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Chyba: Polozka jiz nemuze byt vlozena
+Aktuální stav tabulky:
+Pozice: 0 Klíè: 2, Hodnota: 8
+Pozice: 1 Klíè: 4, Hodnota: 3
+Pozice: 2 Klíè: 3, Hodnota: 9
+Pozice: 3 Klíè: 1, Hodnota: 9
+Pozice: 4 Klíè: 30, Hodnota: -1
+Index posledního prvku je: 3
+=========================================================
+Chyba: Polozka jiz nemuze byt vlozena
+Aktuální stav tabulky:
+Pozice: 0 Klíè: 2, Hodnota: 8
+Pozice: 1 Klíè: 4, Hodnota: 3
+Pozice: 2 Klíè: 3, Hodnota: 9
+Pozice: 3 Klíè: 1, Hodnota: 9
+Pozice: 4 Klíè: 40, Hodnota: -1
+Index posledního prvku je: 3
+=========================================================
+[TEST15]
+Tabulku inicializujeme (ztráta všech dat)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Aktuální stav tabulky:
+Pozice: 0 Klíè: 2, Hodnota: 8
+Pozice: 1 Klíè: 4, Hodnota: 3
+Pozice: 2 Klíè: 3, Hodnota: 9
+Pozice: 3 Klíè: 1, Hodnota: 9
+Pozice: 4 Klíè: 40, Hodnota: -1
+Index posledního prvku je: -1
+=========================================================
+[TEST16]
+A ještì jedna inicializace (ztráta všech dat) 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+Aktuální stav tabulky:
+Pozice: 0 Klíè: 2, Hodnota: 8
+Pozice: 1 Klíè: 4, Hodnota: 3
+Pozice: 2 Klíè: 3, Hodnota: 9
+Pozice: 3 Klíè: 1, Hodnota: 9
+Pozice: 4 Klíè: 40, Hodnota: -1
+Index posledního prvku je: -1
+=========================================================
+[TEST17]
+Pokusíme se vloit další poloky
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Aktuální stav tabulky:
+Pozice: 0 Klíè: 30, Hodnota: 20
+Pozice: 1 Klíè: 4, Hodnota: 3
+Pozice: 2 Klíè: 3, Hodnota: 9
+Pozice: 3 Klíè: 1, Hodnota: 9
+Pozice: 4 Klíè: 40, Hodnota: -1
+Index posledního prvku je: 0
+=========================================================
+Aktuální stav tabulky:
+Pozice: 0 Klíè: 30, Hodnota: 20
+Pozice: 1 Klíè: 40, Hodnota: 30
+Pozice: 2 Klíè: 3, Hodnota: 9
+Pozice: 3 Klíè: 1, Hodnota: 9
+Pozice: 4 Klíè: 40, Hodnota: -1
+Index posledního prvku je: 1
+=========================================================
+[TEST18]
+Pokusíme se vyhledat poloku s klíèem 40
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Aktuální stav tabulky:
+Pozice: 0 Klíè: 40, Hodnota: 30
+Pozice: 1 Klíè: 30, Hodnota: 20
+Pozice: 2 Klíè: 40, Hodnota: -1
+Pozice: 3 Klíè: 1, Hodnota: 9
+Pozice: 4 Klíè: 40, Hodnota: -1
+Index posledního prvku je: 1
+=========================================================
+Hodnota nalezena: ANO
+Index vrácen: 0
+Poèet provedenıch porovnání: 2
+=========================================================
+[TEST19]
+Pokusíme se vyhledat poloku s klíèem 20
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Aktuální stav tabulky:
+Pozice: 0 Klíè: 40, Hodnota: 30
+Pozice: 1 Klíè: 30, Hodnota: 20
+Pozice: 2 Klíè: 20, Hodnota: -1
+Pozice: 3 Klíè: 1, Hodnota: 9
+Pozice: 4 Klíè: 40, Hodnota: -1
+Index posledního prvku je: 1
+=========================================================
+Hodnota nalezena: NE
+Index vrácen: 2
+Poèet provedenıch porovnání: 3
+=========================================================
+[TEST20]
+Tabulku inicializujeme (ztráta všech dat)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Aktuální stav tabulky:
+Pozice: 0 Klíè: 40, Hodnota: 30
+Pozice: 1 Klíè: 30, Hodnota: 20
+Pozice: 2 Klíè: 20, Hodnota: -1
+Pozice: 3 Klíè: 1, Hodnota: 9
+Pozice: 4 Klíè: 40, Hodnota: -1
+Index posledního prvku je: -1
+=========================================================
+------------------------------ konec -------------------------------------
